@@ -1,0 +1,17 @@
+
+Siga as instruções do site: https://docs.docker.com/desktop/
+Após isso instalar o docker Engine: https://docs.docker.com/engine/
+
+sudo usermod -aG docker $USER - Utilizado para executar o docker sem precisar utilizar o sudo.
+
+docker ps -a ou docker container ls - Mostra quais containers estão sendo utilizados
+
+docker stop "ID do container" - para a execução do container
+
+docker exec -it "id do container" "comando" - executa um container no modo interativo
+
+docker pause "id do container" - pause o container
+docker unpause "id do container" -despausa
+
+
+docker run -d -p 8080:80 dockersamples/static-site - Serve para direcionar umas do container para o host
