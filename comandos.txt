@@ -7,6 +7,7 @@ sudo usermod -aG docker $USER - Utilizado para executar o docker sem precisar ut
 docker ps -a ou docker container ls - Mostra quais containers estão sendo utilizados
 
 docker stop "ID do container" - para a execução do container
+docker stop $(docker container ls -q) - para todos os containers existentes
 
 docker exec -it "id do container" "comando" - executa um container no modo interativo
 
@@ -15,3 +16,20 @@ docker unpause "id do container" -despausa
 
 
 docker run -d -p 8080:80 dockersamples/static-site - Serve para direcionar umas do container para o host
+
+docker build -t "nomedousuarioquevcquer/pasta":1.0 . - cria a imagem com o nome de usuario que vc quer na pasta que vc definiu e executa em .
+
+docker run -d -p 8081:3000 diogogodoi/app-node:1.0 - executa a imagem 
+
+docker container rm $(docker image ls -aq) -- remove todos os containers
+docker rmi $(docker image ls -aq) -- remove todas as imagens
+
+
+docker run -it -v caminhoDoHost:caminhoDoDocker ubuntu bash - persiste os dados criados do host no container
+docker run –it --mount type=bind,source=/home/daniel/volume-docker,target=/app ubuntu bash - faz o mesmo da forma anterior
+
+sudo su -> cd /var/lib/docker -> cd volumes - pasta onde são criados os volumes caso o caminho não seja especificadod
+
+docker run -it --name nomedocontainer --network nome-da-brige ubuntu bash - cria um container com o nome escolhido na rede escolhidad
+
+Para executar diversas imagens ao mesmo tempo utilize o docker compose: https://docs.docker.com/compose/gettingstarted/
